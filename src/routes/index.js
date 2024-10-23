@@ -14,7 +14,7 @@ import Dashboard from "../presentation/pages/dashboard/dashBoard";
 import PayoutDashboard from "../presentation/pages/dashboard/payoutDashboard";
 import Client from "../presentation/pages/client";
 import Developers from "../presentation/pages/Developers/Developers";
-import PayInTransaction from "../presentation/pages/Transaction/Payin/index";
+import PayInTransaction from "../presentation/pages/Transaction/PayinTransactions/index";
 import PayOut from "../presentation/pages/Transaction/Payout/index";
 import ChangePassword from "../presentation/pages/ChangePassword";
 import Login from "../presentation/pages/Login/index";
@@ -31,6 +31,8 @@ import ProfileSection from "../presentation/pages/ProfileSection";
 import FundTransfer from "../presentation/pages/fundTransfer";
 import WalletTransaction from "../presentation/pages/Transaction/Wallet";
 import PrefundTransaction from "../presentation/pages/Transaction/Prefund";
+import Payin from "../presentation/pages/Transaction/Payin";
+import Payout from "../presentation/pages/Transaction/PayoutRadio";
 
 const Router = ({ isAuthenticated, role }) => {
   const dispatch = useDispatch();
@@ -79,6 +81,8 @@ const Router = ({ isAuthenticated, role }) => {
               <Route exact path="/User" element={<User />} />
               <Route exact path="/Client" element={<Client />} />
               <Route exact path="/AddClient" element={<AddClientPage />} />
+              <Route exact path ="/payin" element={<Payin />} />
+              <Route exact path = "/payout" element={<Payout />} />
               <Route exact path="/Payintransaction" element={<PayInTransaction />} />
               <Route exact path="/SettlementTransaction" element={<SettlementTransaction />} />
               <Route exact path="/ManualSettlement" element={<AddManualSettlement />} />

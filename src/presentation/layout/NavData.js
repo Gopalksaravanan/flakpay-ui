@@ -34,89 +34,19 @@ export const adminSideBarData = [
     text: "Client",
     link: "/client",
   },
-  // {
-  //   id: 4,
-  //   icon: <TransactionIcon />,
-  //   text: "Payin Transactions",
-  //   link: "/payin-transactions",
-  // },
-  // {
-  //   id: 5,
-  //   icon: <TransactionIcon />,
-  //   text: "Payin Settlement",
-  //   link: "/settlement-transactions",
-  // },
   {
     id: 4,
     icon: <PaidOutlinedIcon />,
     text: "Payin",
-    // link: "/PayinTransaction",
-    children: [
-      {
-        id: 41,
-        icon: <AttachMoneyOutlinedIcon />,
-        text: "Payin Txns",
-        link: "/PayinTransaction",
-      },
-      {
-        id: 42,
-        icon: <AttachMoneyOutlinedIcon />,
-        text: "Payin Settlement",
-        link: "/SettlementTransaction",
-      },
-    ],
+    link: "/payin",
   },
 
   {
     id: 5,
     icon: <PaidOutlinedIcon />,
     text: "Payout",
-    // link: "/PayinTransaction",
-    children: [
-      {
-        id: 51,
-        icon: <AttachMoneyOutlinedIcon />,
-        text: "Prefund Txns",
-        link: "/PrefundTransactions",
-      },
-      {
-        id: 52,
-        icon: <AttachMoneyOutlinedIcon />,
-        text: "Payout Txns",
-        link: "/Payouttransactions",
-      },
-      {
-        id: 53,
-        icon: <AttachMoneyOutlinedIcon />,
-        text: "Fund Transfer",
-        link: "/Fund Transfer",
-      },
-      {
-        id: 54,
-        icon: <AttachMoneyOutlinedIcon />,
-        text: "Wallet Txns",
-        link: "/WalletTransactions",
-      },
-    ],
+    link: "/payout",
   },
-  // {
-  //   id: 5,
-  //   icon: <TransactionIcon />,
-  //   text: "Prefund Transactions",
-  //   link: "/PrefundTransactions",
-  // },
-  // {
-  //   id: 6,
-  //   icon: <TransactionIcon />,
-  //   text: "Payout Transactions",
-  //   link: "/Payouttransactions",
-  // },
-  // {
-  //   id: 7,
-  //   icon: <TransactionIcon />,
-  //   text: "Fund Transfer",
-  //   link: "/Fund Transfer",
-  // },
   {
     id: 8,
     icon: <IntegrationInstructionsOutlinedIcon />,

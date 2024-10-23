@@ -15,7 +15,7 @@ const MainLayout = ({ isAuthenticated, children }) => {
         flexDirection: "column",
       }}
     >
-      <TopNavBar />
+      {/* <TopNavBar /> */}
       <div
         style={{
           display: "flex",

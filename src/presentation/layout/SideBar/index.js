@@ -17,6 +17,7 @@ import { enqueueSnackbar } from "notistack"; // Snackbar for notifications
 import { ApiRequestPost } from "../../../data/network/services/ApiRequestPost";
 import { useDispatch } from "react-redux";
 import { authAction } from "../../../data/local/redux/action/authAction";
+import { LogoFinal } from "../../resources/assetsManager";
 
 const SideBar = () => {
   const [open, setOpen] = useState(true);
@@ -27,9 +28,7 @@ const SideBar = () => {
   const navigate = useNavigate(); // For navigation after logout
   const dispatch = useDispatch(); // For managing auth state
 
-  const toggleOpen = () => {
-    setOpen(!open);
-  };
+
 
   // Logout Functionality
   const logout = () => {
@@ -102,128 +101,147 @@ const SideBar = () => {
   };
 
   return (
-    <div className={open ? styles.sidenav : styles.sidenavClosed}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 10px",
-        }}
-      >
-        {/* Add toggle button if needed */}
-      </div>
-
-      {/* Sidebar Navigation Items */}
-      {navData.map((item) => (
-        <div key={item.id}>
-          <NavLink
-            to={item.link}
-            onClick={() => handleClick(item.id)}
-            style={{
-              textDecoration: "none",
-              color: "#000000",
-              display: "flex",
-              alignItems: "center",
-              width: open ? "180px" : "50px",
-              padding: 5,
-              margin: 10,
-              borderRadius: 5,
-              background:
-                selectedItem === item.id || isChildSelected(item.children)
-                  ? "#64C466"
-                  : "transparent",
-            }}
-            className={`${styles.navLink} ${
-              selectedItem === item.id || isChildSelected(item.children)
-                ? "active"
-                : ""
-            }`}
-          >
-            <i>{item.icon}</i>
-            {open && (
-              <>
-                <span className={styles.linkText}>{item.text}</span>
-                {item.children && (
-                  <i
-                    className={`${styles.fadeIcon} ${
-                      openDropdowns[item.id] ? styles.open : styles.closed
-                    }`}
-                    style={{ marginLeft: "auto" }}
-                  >
-                    {openDropdowns[item.id] ? (
-                      <ExpandLessIcon />
-                    ) : (
-                      <ExpandMoreIcon />
-                    )}
-                  </i>
-                )}
-              </>
-            )}
-          </NavLink>
-
-          {item.children && (
-            <div
-              className={`${styles.dropdownContainer} ${
-                openDropdowns[item.id] ? styles.dropdownOpen : ""
-              }`}
-            >
-              {item.children.map((child) => (
-                <NavLink
-                  key={child.id}
-                  to={child.link}
-                  onClick={() => handleClick(child.id)}
-                  style={{
-                    textDecoration: "none",
-                    color: "#000000",
-                    display: "flex",
-                    alignItems: "center",
-                    width: open ? "150px" : "50px",
-                    padding: 12,
-                    marginLeft: open ? "30px" : "5px",
-                    borderRadius: 5,
-                    background:
-                      selectedItem === child.id ? "#449046" : "transparent",
-                    justifyContent: open ? " " : "left",
-                  }}
-                  className={`${styles.navLink} ${
-                    selectedItem === child.id ? "active" : ""
-                  }`}
-                >
-                  <i>{child.icon}</i>
-                  {open && (
-                    <span className={styles.linkText}>{child.text}</span>
-                  )}
-                </NavLink>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
-
-      {/* Add Logout Button at the Bottom of Sidebar */}
-      <div style={{ marginTop: "auto" }}>
+    <div className={styles.sidenav}>
+     <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+    }}
+  >
+    <img style={{ width: 200 }} src={LogoFinal} alt="Logo" />
+  </div>
+    {/* Sidebar Navigation Items */}
+    {navData.map((item) => (
+      <div key={item.id} >
         <NavLink
-          onClick={logout} // Attach logout function
+          to={item.link}
+          onClick={() => handleClick(item.id)}
           style={{
             textDecoration: "none",
             color: "#000000",
             display: "flex",
-            alignItems: "center",
-            width: open ? "180px" : "50px",
-            padding: 5,
-            margin: 10,
-            borderRadius: 5,
-            background: "transparent",
-            cursor: "pointer",
+            flexDirection: "column",  
+            alignItems: "center",      
+            justifyContent: "center",  
+            padding: "5px",          
           }}
-          className={styles.navLink}
+          className={`${styles.navLink} ${
+            selectedItem === item.id || isChildSelected(item.children)
+              ? styles.active
+              : ""
+          }`}
         >
-          <LogoutIcon style={{ marginRight: 10 }} />
-          {open && <span className={styles.linkText}>Log out</span>}
+          {/* Icon with circle background when active */}
+          <i
+            className={`${styles.icon} ${
+              selectedItem === item.id || isChildSelected(item.children)
+                ? styles.activeIcon
+                : ""
+            }`}
+            style={{
+              width: "60px",
+              height: "60px",
+              borderRadius: "50%", 
+              backgroundColor:
+                selectedItem === item.id || isChildSelected(item.children)
+                  ? "#64C466"          
+                  : "transparent",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+           {item.icon && React.cloneElement(item.icon, { style: { fontSize: '40px' } })}
+          </i>
+          <div style={{ display: "flex", alignItems: "center", marginTop: "5px" }}>
+    <span className={styles.linkText}>{item.text}</span>
+
+    {/* Add the arrow icon if there are children */}
+    {item.children && (
+      <>
+        {openDropdowns[item.id] ? (
+          <ExpandLessIcon style={{ marginLeft: "5px", fontSize: "20px" }} />
+        ) : (
+          <ExpandMoreIcon style={{ marginLeft: "5px", fontSize: "20px" }} />
+        )}
+      </>
+    )}
+  </div>
         </NavLink>
+  
+        {/* Submenu for children */}
+        {item.children && (
+          <div
+            className={`${styles.dropdownContainer} ${
+              openDropdowns[item.id] ? styles.dropdownOpen : ""
+            }`}
+          >
+            {item.children.map((child) => (
+              <NavLink
+                key={child.id}
+                to={child.link}
+                onClick={() => handleClick(child.id)}
+                style={{
+                  textDecoration: "none",
+                  color: "#000000",
+                  display: "flex",
+                  flexDirection: "column", 
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "150px",
+                  padding: "10px",
+                  marginLeft: "30px",
+                  borderRadius: "5px",
+                  background:
+                    selectedItem === child.id ? "#449046" : "transparent",
+                }}
+                className={`${styles.navLink} ${
+                  selectedItem === child.id ? styles.active : ""
+                }`}
+              >
+                <i>{child.icon}</i>
+                <span className={styles.linkText}>{child.text}</span>
+              </NavLink>
+            ))}
+          </div>
+        )}
       </div>
+    ))}
+  
+    {/* Add Logout Button at the Bottom */}
+    <div style={{ marginTop: "auto" }}>
+      <NavLink
+        onClick={logout}
+        style={{
+          textDecoration: "none",
+          color: "#000000",
+          display: "flex",
+          flexDirection: "column",  // Column layout for logout as well
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "10px",
+        }}
+        className={styles.navLink}
+      >
+        <i
+          className={styles.icon}
+          style={{
+            width: "50px",
+            height: "50px",
+            borderRadius: "50%",
+            backgroundColor: "transparent",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <LogoutIcon />
+        </i>
+        <span className={styles.linkText}>Log out</span>
+      </NavLink>
     </div>
+  </div>
+  
   );
 };
 

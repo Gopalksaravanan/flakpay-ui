@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Payin = ()=>{
+const Payout = ()=>{
     
     const navigate = useNavigate();
     const [selectedOption, setSelectedOption] = useState("");
@@ -11,10 +11,14 @@ const Payin = ()=>{
       };
 
       const handleGoClick = () => {
-        if (selectedOption === "payintransactions") {
-          navigate("/Payintransaction");
-        } else if (selectedOption === "payinsettlement") {
-          navigate("/SettlementTransaction");
+        if (selectedOption === "prefundtransactions") {
+          navigate("/PrefundTransactions");
+        } else if (selectedOption === "payouttransactions") {
+          navigate("/Payouttransactions");
+        } else if (selectedOption === "fundtransfer"){
+          navigate("/Fund Transfer")
+        } else if (selectedOption === "wallettransactions"){
+            navigate("/WalletTransactions")
         }
       };
     
@@ -37,20 +41,42 @@ const Payin = ()=>{
         <label>
         <input 
         type="radio"
-        value="payintransactions"
-        checked={selectedOption === "payintransactions"}
+        value="prefundtransactions"
+        checked={selectedOption === "prefundtransactions"}
         onChange={handleOptionChange}
-         />Payin Transactions
+         />Prefund Transactions
          </label>
          </div>
-         <label>
-         <input 
+         <div style={{marginBottom:20}}>
+        <label>
+        <input 
         type="radio"
-        value="payinsettlement"
-        checked={selectedOption === "payinsettlement"}
+        value="payouttransactions"
+        checked={selectedOption === "payouttransactions"}
         onChange={handleOptionChange}
-         />Payin Settlement
+         />Payout Transactions
          </label>
+         </div>
+         <div style={{marginBottom:20}}>
+        <label>
+        <input 
+        type="radio"
+        value="fundtransfer"
+        checked={selectedOption === "fundtransfer"}
+        onChange={handleOptionChange}
+         />Fund Transfer
+         </label>
+         </div>
+         <div style={{marginBottom:20}}>
+        <label>
+        <input 
+        type="radio"
+        value="wallettransactions"
+        checked={selectedOption === "wallettransactions"}
+        onChange={handleOptionChange}
+         />Wallet Transactions
+         </label>
+         </div>
         </div>
         <div style={{display:"flex",justifyContent:"center"}}>
         <button
@@ -74,4 +100,4 @@ const Payin = ()=>{
     )
 }
 
-export default Payin;
+export default Payout;
