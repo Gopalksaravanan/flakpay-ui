@@ -43,55 +43,72 @@ function ForgotPassword() {
 
   return (
     <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100vh',
-      fontFamily: "'Poppins', sans-serif",
-      justifyContent: 'center', 
-      alignItems: 'center',
-    }}
-    > 
-       <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        fontFamily: "'Poppins', sans-serif",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {/* Background Logo Tint */}
+      <div
         style={{
-          textAlign: 'center',
-          marginBottom: '20px',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: `
+          url(${logo}), 
+          url(${logo})`, // Use the logo as a background image twice
+          backgroundSize: "100px 100px, 100px 100px", // Size of each logo
+          backgroundRepeat: "repeat, repeat", // Repeat logos
+          backgroundPosition: "0 0, 50px 50px", // First line from left to right, second line from right to left
+          opacity: 0.4, // Make the logos faint for the tint effect
+        }}
+      ></div>
+      {/* <div
+        style={{
+          textAlign: "center",
+          marginBottom: "20px",
         }}
       >
         <img
           src={logo}
           alt="Company Logo"
-          style={{ width: '250px', height: 'auto' }} 
+          style={{ width: "250px", height: "auto" }}
         />
-      </div>
+      </div> */}
       <div
         style={{
-           background: '#03A176',
-          padding: '40px',
-          borderRadius: '15px',
-          backdropFilter: 'blur(10px)',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-          textAlign: 'center',
-          width:"350px",
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
+          background: "#8D6985",
+          padding: "40px",
+          borderRadius: "15px",
+          backdropFilter: "blur(10px)",
+          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+          textAlign: "center",
+          width: "350px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-          <h2
+        <h2
           style={{
-            marginBottom: '30px',
-            fontSize: '2rem',
-            color: 'white',
+            marginBottom: "30px",
+            fontSize: "2rem",
+            color: "white",
           }}
         >
           Forgot password?
         </h2>
         <div
           style={{
-            position: 'relative',
-            marginBottom: '30px',
+            position: "relative",
+            marginBottom: "30px",
           }}
         >
           <input
@@ -101,13 +118,15 @@ function ForgotPassword() {
               height: "35px",
               borderRadius: "5px",
               border: "1px solid #03A176",
-              outline:"#03A176"
+              outline: "#03A176",
             }}
             type="text"
             placeholder="Enter Email Address"
             onChange={handleEmailChange}
             value={email}
-          ></input>
+          >
+         
+          </input>
           <div
             onClick={() => navigate("login")}
             style={{

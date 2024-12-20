@@ -21,6 +21,7 @@ import {
   addServiceProviderListAction,
 } from "../../../data/local/redux/action/clientActions";
 import logo from "../../../Assets/png/aanamaak_mart_logo.webp";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 function Login() {
   const dispatch = useDispatch();
@@ -121,54 +122,261 @@ function Login() {
   };
 
   return (
-    <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100vh',
-      fontFamily: "'Poppins', sans-serif",
-      justifyContent: 'center', 
-      alignItems: 'center',
-    }}
-    >
-       <div
-        style={{
-          textAlign: 'center',
-          marginBottom: '20px',
-        }}
-      >
-        <img
-          src={logo}
-          alt="Company Logo"
-          style={{ width: '250px', height: 'auto' }} 
-        />
-      </div>
+    // <div
+    // style={{
+    //   display: 'flex',
+    //   flexDirection: 'column',
+    //   height: '100vh',
+    //   fontFamily: "'Poppins', sans-serif",
+    //   justifyContent: 'center', 
+    //   alignItems: 'center',
+    // }}
+    // >
+    //    <div
+    //     style={{
+    //       textAlign: 'center',
+    //       marginBottom: '20px',
+    //     }}
+    //   >
+    //     <img
+    //       src={logo}
+    //       alt="Company Logo"
+    //       style={{ width: '250px', height: 'auto' }} 
+    //     />
+    //   </div>
 
    
+    //   <div
+    //     style={{
+    //        background: '#03A176',
+    //       padding: '40px',
+    //       borderRadius: '15px',
+    //       backdropFilter: 'blur(10px)',
+    //       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+    //       textAlign: 'center',
+    //       width:"350px"
+    //     }}
+    //   >
+    //     <h2
+    //       style={{
+    //         marginBottom: '30px',
+    //         fontSize: '2rem',
+    //         color: 'white',
+    //       }}
+    //     >
+    //       Welcome!
+    //     </h2>
+    //     <div
+    //       style={{
+    //         position: 'relative',
+    //         marginBottom: '30px',
+    //       }}
+    //     >
+    //       <input
+    //         type="email"
+    //         value={email}
+    //         onChange={handleEmailChange}
+    //         required
+    //         style={{
+    //           width: '100%',
+    //           padding: '10px',
+    //           fontSize: '16px',
+    //           background: 'none',
+    //           border: 'none',
+    //           borderBottom: '2px solid white',
+    //           outline: 'none',
+    //           color: 'white',
+    //         }}
+    //       />
+    //       <label
+    //         style={{
+    //           position: 'absolute',
+    //           left: '0',
+    //           bottom: '10px',
+    //           fontSize: email ? '14px' : '16px',
+    //           color:'white',
+    //           transform: email ? 'translateY(-30px)' : 'none',
+    //           transition: '0.3s',
+    //         }}
+    //       >
+    //         Email
+    //       </label>
+    //     </div>
+    //     <div
+    //       style={{
+    //         position: 'relative',
+    //         marginBottom: '15px',
+    //       }}
+    //     >
+    //       <input
+    //         type={type}
+    //         value={password}
+    //         onChange={(e) => setPassword(e.target.value)}
+    //         required
+    //         style={{
+    //           width: '100%',
+    //           padding: '10px',
+    //           fontSize: '16px',
+    //           background: 'none',
+    //           border: 'none',
+    //           borderBottom: '2px solid white',
+    //           outline: 'none',
+    //           color: 'white',
+    //         }}
+    //       />
+    //       <label
+    //         style={{
+    //           position: 'absolute',
+    //           left: '0',
+    //           bottom: '10px',
+    //           fontSize: password ? '14px' : '16px',
+    //           color:'white',
+    //           transform: password ? 'translateY(-30px)' : 'none',
+    //           transition: '0.3s',
+    //         }}
+    //       >
+    //         Password
+    //       </label>
+    //       <div
+    //         style={{
+    //           position: 'absolute',
+    //           right: '2px',
+    //           top: '50%',
+    //           transform: 'translateY(-50%)',
+    //           cursor: 'pointer',
+    //         }}
+    //       >
+    //         {visible ? (
+    //           <VisibilityIcon
+    //             onClick={() => {
+    //               setType("text");
+    //               setVisible(false);
+    //               setVisibleOff(true);
+    //             }}
+    //             style={{ color: '#85497B' }}
+    //           />
+    //         ) : (
+    //           <VisibilityOffIcon
+    //             onClick={() => {
+    //               setType("password");
+    //               setVisible(true);
+    //               setVisibleOff(false);
+    //             }}
+    //             style={{ color: '#85497B' }}
+    //           />
+    //         )}
+    //       </div>
+    //     </div>
+    //     <div
+    //       style={{
+    //         textAlign: 'right',
+    //         marginBottom: '30px',
+    //       }}
+    //     >
+    //       <Link to="/ForgotPassword" style={{ textDecoration: "none" }}>
+    //         <p
+    //           style={{
+    //             fontSize: "small",
+    //             fontWeight: "bold",
+    //             textAlign: "right",
+    //             cursor: "pointer",
+    //             textDecoration: "none",
+    //             color: 'white',
+    //           }}
+    //         >
+    //           Forgot Password ?
+    //         </p>
+    //       </Link>
+    //     </div>
+    //     <button
+    //       style={{
+    //         width: '50%',
+    //         padding: '10px',
+    //         fontSize: '16px',
+    //         fontWeight:"bold",
+    //         color: '#39B288',
+    //         backgroundColor: 'white',
+    //         border: 'none',
+    //         borderRadius: '30px',
+    //         cursor: 'pointer',
+    //         transition: 'background-color 0.3s',
+    //       }}
+    //       onClick={onClickLogin}
+    //     >
+    //       Login
+    //     </button>
+    //   </div>
+    
+    // </div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        fontFamily: "'Poppins', sans-serif",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: 'darkgray',
+        position: "relative", 
+        overflow: "hidden", 
+      }}
+    >
+      {/* Background Logo Tint */}
       <div
         style={{
-           background: '#03A176',
-          padding: '40px',
-          borderRadius: '15px',
-          backdropFilter: 'blur(10px)',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-          textAlign: 'center',
-          width:"350px"
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: `
+          url(${logo}), 
+          url(${logo})`, // Use the logo as a background image twice
+          backgroundSize: "100px 100px, 100px 100px", // Size of each logo
+          backgroundRepeat: "repeat, repeat", // Repeat logos
+          backgroundPosition: "0 0, 50px 50px", // First line from left to right, second line from right to left
+          opacity: 0.4, // Make the logos faint for the tint effect
+        }}
+      ></div>
+      <div
+        style={{
+          textAlign: "center",
+          marginBottom: "20px",
+          zIndex: 1,
+        }}
+      >
+        {/* <img
+          src={logo}
+          alt="Company Logo"
+          style={{ width: "250px", height: "auto" }}
+        /> */}
+      </div>
+
+      <div
+        style={{
+          background: '#8D6985',
+          padding: "40px",
+          borderRadius: "15px",
+          backdropFilter: "blur(10px)",
+          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+          textAlign: "center",
+          width: "300px",
+          height: "400px",
         }}
       >
         <h2
           style={{
-            marginBottom: '30px',
-            fontSize: '2rem',
-            color: 'white',
+            marginBottom: "30px",
+            fontSize: "2rem",
+            color: "white",
           }}
         >
           Welcome!
         </h2>
         <div
           style={{
-            position: 'relative',
-            marginBottom: '30px',
+            position: "relative",
+            marginBottom: "50px",
           }}
         >
           <input
@@ -177,25 +385,35 @@ function Login() {
             onChange={handleEmailChange}
             required
             style={{
-              width: '100%',
-              padding: '10px',
-              fontSize: '16px',
-              background: 'none',
-              border: 'none',
-              borderBottom: '2px solid white',
-              outline: 'none',
-              color: 'white',
+              width: "100%",
+              padding: "10px",
+              paddingRight: "10px",
+              fontSize: "16px",
+              background: "none",
+              border: "none",
+              borderBottom: "2px solid white",
+              outline: "none",
+              color: "white",
+            }}
+          />
+          <EmailOutlinedIcon
+            style={{
+              color: "#03A176",
+              position: "absolute",
+              right: "1px",
+              top: "50%",
+              transform: "translateY(-50%)",
             }}
           />
           <label
             style={{
-              position: 'absolute',
-              left: '0',
-              bottom: '10px',
-              fontSize: email ? '14px' : '16px',
-              color:'white',
-              transform: email ? 'translateY(-30px)' : 'none',
-              transition: '0.3s',
+              position: "absolute",
+              left: "0",
+              bottom: "10px",
+              fontSize: email ? "14px" : "16px",
+              color: "white",
+              transform: email ? "translateY(-30px)" : "none",
+              transition: "0.3s",
             }}
           >
             Email
@@ -203,8 +421,8 @@ function Login() {
         </div>
         <div
           style={{
-            position: 'relative',
-            marginBottom: '15px',
+            position: "relative",
+            marginBottom: "50px",
           }}
         >
           <input
@@ -213,36 +431,36 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
             style={{
-              width: '100%',
-              padding: '10px',
-              fontSize: '16px',
-              background: 'none',
-              border: 'none',
-              borderBottom: '2px solid white',
-              outline: 'none',
-              color: 'white',
+              width: "100%",
+              padding: "10px",
+              fontSize: "16px",
+              background: "none",
+              border: "none",
+              borderBottom: "2px solid white",
+              outline: "none",
+              color: "white",
             }}
           />
           <label
             style={{
-              position: 'absolute',
-              left: '0',
-              bottom: '10px',
-              fontSize: password ? '14px' : '16px',
-              color:'white',
-              transform: password ? 'translateY(-30px)' : 'none',
-              transition: '0.3s',
+              position: "absolute",
+              left: "0",
+              bottom: "10px",
+              fontSize: password ? "14px" : "16px",
+              color: "white",
+              transform: password ? "translateY(-30px)" : "none",
+              transition: "0.3s",
             }}
           >
             Password
           </label>
           <div
             style={{
-              position: 'absolute',
-              right: '2px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              cursor: 'pointer',
+              position: "absolute",
+              right: "2px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              cursor: "pointer",
             }}
           >
             {visible ? (
@@ -252,7 +470,7 @@ function Login() {
                   setVisible(false);
                   setVisibleOff(true);
                 }}
-                style={{ color: '#85497B' }}
+                style={{ color: "#03A176" }}
               />
             ) : (
               <VisibilityOffIcon
@@ -261,15 +479,33 @@ function Login() {
                   setVisible(true);
                   setVisibleOff(false);
                 }}
-                style={{ color: '#85497B' }}
+                style={{ color: "#03A176" }}
               />
             )}
           </div>
         </div>
+
+        <button
+          style={{
+            width: "50%",
+            padding: "10px",
+            fontSize: "16px",
+            fontWeight: "bold",
+            color: "#39B288",
+            backgroundColor: "white",
+            border: "none",
+            borderRadius: "30px",
+            cursor: "pointer",
+            transition: "background-color 0.3s",
+          }}
+          onClick={onClickLogin}
+        >
+          Login
+        </button>
         <div
           style={{
-            textAlign: 'right',
-            marginBottom: '30px',
+            textAlign: "right",
+            marginBottom: "30px",
           }}
         >
           <Link to="/ForgotPassword" style={{ textDecoration: "none" }}>
@@ -280,32 +516,14 @@ function Login() {
                 textAlign: "right",
                 cursor: "pointer",
                 textDecoration: "none",
-                color: 'white',
+                color: "white",
               }}
             >
               Forgot Password ?
             </p>
           </Link>
         </div>
-        <button
-          style={{
-            width: '50%',
-            padding: '10px',
-            fontSize: '16px',
-            fontWeight:"bold",
-            color: '#39B288',
-            backgroundColor: 'white',
-            border: 'none',
-            borderRadius: '30px',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s',
-          }}
-          onClick={onClickLogin}
-        >
-          Login
-        </button>
       </div>
-    
     </div>
   );
 }
