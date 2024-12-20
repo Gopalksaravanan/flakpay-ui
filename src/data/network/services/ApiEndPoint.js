@@ -15,9 +15,9 @@
 // };
 
 export const API_ENDPOINT = { 
-  basePath: "https://api.digibizpay.in/fundsweep-user-svc/api/v1/",
-  corePath : "https://api.digibizpay.in/fundsweep-core-svc/api/v1/",
-  payinpath : "https://api.digibizpay.in/fundsweep-payin-svc/api/v1/",
-  payoutPath : "https://api.digibizpay.in/fundsweep-payout-svc/api/v1/"
+  basePath: "https://api.flakpay.in/fundsweep-user-svc/api/v1/",
+  corePath : "https://api.flakpay.in/fundsweep-core-svc/api/v1/",
+  payinpath : "https://api.flakpay.in/fundsweep-payin-svc/api/v1/",
+  payoutPath : "https://api.flakpay.in/fundsweep-payout-svc/api/v1/"
 };
 
